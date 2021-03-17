@@ -51,9 +51,9 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     
-    - deploy:
+  deploy:
+    - run: heroku login
         name: Heroku Deploy
-        - run: heroku login
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
