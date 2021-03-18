@@ -52,8 +52,10 @@ jobs:
         destination: test-results
     
     - deploy:
-        name: Heroku Deploy
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-          fi
+        executor: heroku/default
+        steps:
+          - checkout
+          - heroku/install
+          - run: heroku login
+          - heroku/deploy-via-git:
+              only-branch: main
