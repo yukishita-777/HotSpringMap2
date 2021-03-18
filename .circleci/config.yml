@@ -51,8 +51,7 @@ jobs:
         path: /tmp/test-results
         destination: test-results
     
-  deploy:
-    - run: heroku login
+    - deploy:
         name: Heroku Deploy
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
