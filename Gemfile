@@ -7,7 +7,7 @@ ruby '2.5.3'
 gem 'rails', '~> 6.1.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0', groups: %w(test development), require: false
-gem 'pg', '~> 0.19.0', group: :production, require: false
+gem 'pg', '~> 1.1', group: :production, require: false
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
